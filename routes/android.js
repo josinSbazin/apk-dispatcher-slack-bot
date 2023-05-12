@@ -8,10 +8,11 @@ const project_id = process.env.PROJECT_ID;
 const authToken = process.env.AUTH_TOKEN;
 const triggerToken = process.env.TRIGGER_TOKEN;
 const slackAccessToken = process.env.SLACK_CHANNEL_ACCESS_TOKEN;
+const gitlab_api_link = process.env.API_LINK;
 
-const branches_api = `https://gitlab.com/api/v4/projects/${project_id}/repository/branches`;
-const trigger_api = `https://gitlab.com/api/v4/projects/${project_id}/trigger/pipeline`;
-const pipeline_api = `https://gitlab.com/api/v4/projects/${project_id}/pipelines`;
+const branches_api = `${gitlab_api_link}/projects/${project_id}/repository/branches`;
+const trigger_api = `${gitlab_api_link}/projects/${project_id}/trigger/pipeline`;
+const pipeline_api = `${gitlab_api_link}/projects/${project_id}/pipelines`;
 
 function generateSuccessReply(user_id, ticket, ref){
   return {
